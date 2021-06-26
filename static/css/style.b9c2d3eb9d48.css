@@ -1,0 +1,578 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+:root {
+    --dark-background: #131313;
+    --light-background: #fffdf6;
+    --light-font: #d1d1d1;
+    --dark-font: #272a2e;
+    --light-card: #fffdf6;
+    --dark-card: #282828;
+    --border-color: #505050;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-background);
+}
+
+
+/* custom scroll bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* all similar content styling codes section {
+    color: var(--light-font);
+    height: 65vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ */
+
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.block {
+    background-color: var(--dark-background);
+    width: 600px;
+    height: 500px;
+    text-align: center;
+}
+
+.block i {
+    color: var(--light-font);
+    font-size: 100px;
+    margin: 30px;
+}
+
+.block label {
+    color: var(--light-font);
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+.block small {
+    font-family: Poppins;
+    font-size: medium;
+    color: rgb(236, 222, 28);
+}
+
+#username-input {
+    background: transparent;
+    color: var(--light-font);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 60px;
+    width: 500px;
+    transition: all 0.2s ease-in-out;
+    padding: 20px;
+    margin: 50px;
+    text-align: center;
+    box-shadow: inset 5px 5px 10px #0b0b0b, inset -5px -5px 10px #1b1b1b;
+}
+
+#username-input:hover {
+    box-shadow: inset 1px 1px 2px #0b0b0b, inset -1px -1px 2px #1b1b1b;
+}
+
+#username-input:-webkit-autofill,
+#username-input:-webkit-autofill:hover,
+#username-input:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: var(--light-font);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 480px) {
+    .block {
+        width: 100%;
+        padding: 50px;
+    }
+    #username-input {
+        font-size: 20px;
+        margin: 0px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    .block label {
+        font-size: 30px;
+    }
+}
+
+
+/* This styling is for profile page*/
+
+div {
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: fit-content;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.intro {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: fit-content;
+    color: var(--light-font);
+    text-align: center;
+    font-family: Poppins;
+    letter-spacing: 1px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: transparent;
+    border: solid rgb(32, 28, 39) 10px;
+    overflow: hidden;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+}
+
+#name {
+    font-size: 40px;
+    padding: 10px;
+}
+
+#username {
+    color: mediumpurple;
+    font-size: 30px;
+    font-family: monospace;
+}
+
+#bio {
+    color: var(--light-font);
+    font-size: 20px;
+    font-family: cursive;
+}
+
+.wide-block {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wide-block #location,
+.wide-block #joined-date {
+    float: left;
+    margin: 15px;
+    font-weight: 500;
+}
+
+span {
+    margin-right: 10px;
+    color: mediumpurple;
+}
+
+.counter {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+.flex-box {
+    width: 33.33%;
+    height: fit-content;
+    padding: 20px;
+}
+
+.counter .count {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: var(--dark-card);
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#count {
+    font-family: Poppins;
+    line-height: 30px;
+}
+
+.count h4 {
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 5px;
+    vertical-align: middle;
+}
+
+.top-repos {
+    font-family: Poppins;
+    background-color: var(--light-background);
+    color: var(--dark-font);
+}
+
+.header {
+    width: 100%;
+    height: fit-content;
+    padding: 50px 50px 10px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.sort-list {
+    display: flex;
+    list-style: none;
+}
+
+#sortbystars,
+#sortbyforks,
+#sortbysizes {
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    height: 40px;
+    width: 100px;
+    box-shadow: inset 2px 2px 5px #bdbbb6, inset -5px -5px 10px #f7f7f7;
+    transition: all 0.2s ease-in-out;
+    padding: 0px 10px 0px;
+    color: var(--dark-font);
+    cursor: pointer;
+    letter-spacing: 0.07em;
+    margin-left: 20px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-family: Poppins;
+}
+
+#sortbystars:hover,
+#sortbyforks:hover,
+#sortbysizes:hover {
+    box-shadow: -2px -2px 5px #f7f7f7, 2px 2px 5px #d1cfca;
+}
+
+
+/* charts section */
+
+.chart-container {
+    width: 100%;
+    height: 450px;
+    padding: 0px 30px 0px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: linear-gradient(to bottom, var(--dark-background) 50%, var(--light-background) 50%);
+}
+
+.chart {
+   
+    overflow: hidden;
+    width: 33%;
+    height: 100%;
+    margin-inline: 20px;
+    padding: 30px;
+    background-color: var(--light-background);
+    border-radius: 5px;
+    box-shadow: 3px 3px 18px #b6b6b6;
+    align-items: center;
+    
+}
+.chart h2{
+    width: fit-content;
+    font-family: Poppins;
+    color: var(--dark-font);
+    padding-bottom: 5px;
+    border-bottom: dashed 2px #dadada;
+    letter-spacing: 1px;
+    
+    overflow: hidden;
+}
+
+#myChart1,
+#myChart2,
+#myChart3{
+    margin: 0;
+    display: flex;
+    align-self: center;
+}
+
+
+/* top repo list */
+
+.card {
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+    margin-block-end: 20px;
+    position: relative;
+    overflow: visible;
+}
+
+
+/* Remove extra left and right margins, due to padding */
+
+.row {
+    padding: 30px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Style the counter cards */
+
+.box {
+    text-align: left;
+    height: 200px;
+    background: var(--light-background);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: var(--dark-font);
+    padding: 20px;
+    position: relative;
+    box-shadow: 7px 7px 16px #dedcd6, -7px -7px 16px #ffffff;
+}
+
+.box:hover {
+    border: solid var(--border-color) 1px;
+}
+
+.box img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.box h3 {
+    word-wrap: break-word;
+    font-size: 20px;
+    letter-spacing: .1em;
+    line-height: 1.25;
+    margin: 0 0 .75em;
+    clear: both;
+}
+
+.box span {
+    font-size: 16px;
+    color: var(--dark-font);
+    vertical-align: middle;
+}
+
+.box p {
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.repo-counts {
+    width: 70%;
+    float: left;
+}
+
+.repo-counts h6 {
+    float: left;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.repo-counts h6 span {
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+.repo-size {
+    text-align: right;
+    width: 20%;
+    font-size: 20px;
+}
+
+.repo-size h6 {
+    font-weight: 100;
+}
+
+@media (min-height: 1400px) and (max-width:1657px){
+    .chart-container{
+        height: 500px;
+    }
+}
+
+@media (min-width:701px) and (max-width:1000px) {
+    .intro {
+        padding: 10px;
+        width: 100%;
+    }
+    .chart-container {
+        height: fit-content;
+        padding: 0px 20px 0px 20px;
+        flex-direction: row;
+    }
+    .chart {
+        height: 350px;
+        padding: 10px;
+        margin-inline: 10px;
+    }
+    .chart h2{
+        font-size: 15px;
+    }
+    .card {
+        width: 50%;
+    }
+    
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 50px 10px;
+    }
+    .intro {
+        padding: 20px;
+        width: 100%;
+    }
+    #name {
+        font-size: 30px;
+        padding: 10px;
+    }
+    #username {
+        font-weight: 100;
+        font-size: 20px;
+    }
+    .wide-block {
+        width: 100%;
+        padding: 30px 10px;
+        display: block;
+        overflow: hidden;
+    }
+    .wide-block #location,
+    .wide-block #joined-date {
+        float: none;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        text-align: center;
+    }
+    .counter {
+        display: block;
+    }
+    .flex-box {
+        width: 100%;
+        padding: 10px;
+    }
+    .count {
+        padding: 20px;
+        text-align: center;
+    }
+    #count {
+        padding: 15px 0px;
+        font-size: 24px;
+        vertical-align: middle;
+    }
+    .count h4 {
+        vertical-align: middle;
+        font-size: 35px;
+        color: mediumpurple;
+    }   
+    /* charts section */
+    .chart-container {
+        height: fit-content;
+        padding: 0px 40px 0px 40px;
+        flex-direction: column;
+    }
+
+    .chart {
+        width: 100%;
+        height: 100%;
+        margin-block-end: 40px;
+    }
+    
+    
+
+
+    .header {
+        display: block;
+        text-align: center;
+        padding: 30px 10px 0px 10px;
+        justify-items: center;
+        align-items: center;
+    }
+    .sort-list {
+        justify-content: center;
+        padding: 30px;
+    }
+    #sortbystars,
+    #sortbyforks,
+    #sortbysizes {
+        margin: 5px;
+    }
+    .row {
+        padding: 40px;
+    }
+    .card {
+        width: 100%;
+        padding: 0px;
+    }
+}

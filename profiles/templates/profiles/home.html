@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Octoprofile by Shantanu Nighot</title>
+    <meta name="description" content="View your Github profile in cool way with the Charts for you top languages, most starred repositories and stars per languages.">
+    <link rel="icon" href="https://res.cloudinary.com/magbanum/image/upload/v1624486789/GitHub-Mark-Light-32px_oyncfd.png" type="image/jpg">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+</head>
+
+<body>
+    <section class="landing-page">
+        <div class="block">
+            <i class="fab fa-github"></i>
+
+            <form action="{% url 'profile_page' %}" method="GET">
+
+                <label for="{{ form.username.id_for_label }}">Find your Octoprofile</label> {{ form.username }} <br>
+                <small>{{ note }}</small>
+            </form>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

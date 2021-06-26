@@ -1,0 +1,4 @@
+/env
+/profiles/static
+db.sqlite3
+/.vscode

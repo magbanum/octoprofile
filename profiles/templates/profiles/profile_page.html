@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Octoprofile | {{ userdata.login }}</title>
+    <meta name="description" content="View your Github profile in cool way with the Charts for you top languages, most starred repositories and stars per languages.">
+    <link rel="icon" href="https://res.cloudinary.com/magbanum/image/upload/v1624486789/GitHub-Mark-Light-32px_oyncfd.png" type="image/jpg">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.0/list.min.js"></script>
+
+</head>
+
+<body>
+    <section class="container">
+        <div class="intro">
+            <div class="avatar">
+                <div class="circle">
+                    <img src="{{ userdata.avatar_url }}" alt="">
+
+                </div>
+            </div>
+
+            <h1 id="name">{{ userdata.name }}</h1>
+            <h2 id="username">@{{ userdata.login }}</h2><br>
+            <p id="bio">{{ userdata.bio }}</p>
+            <div class="wide-block">
+                <h3 id="location"><span><i class="fas fa-map-marker-alt"></i></span>{{ userdata.location }}</h3>
+                <h3 id="joined-date"><span><i class="fas fa-calendar-day"></i></span>Joined {{ userdata.created_at }}
+                </h3>
+            </div>
+
+            <div class="counter">
+                <div class="flex-box">
+                    <div class="count">
+                        <h4>{{ userdata.public_repos }}</h4>
+                        <h5 id="count">REPOSITORIES</h5>
+                    </div>
+                </div>
+                <div class="flex-box">
+                    <div class="count">
+                        <h4>{{ userdata.followers }}</h4>
+                        <h5 id="count">FOLLOWERS</h5>
+                    </div>
+                </div>
+                <div class="flex-box">
+                    <div class="count">
+                        <h4>{{ userdata.following }}</h4>
+                        <h5 id="count">FOLLOWINGS</h5>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+    <section class="chart-container">
+        <div class="chart">
+            <h2>Top Languages</h2>
+            <br>
+            <center><canvas id="myChart1"></canvas></center>
+
+        </div>
+        <div class="chart">
+            <h2>Most Starred</h2>
+            <br>
+            <center><canvas id="myChart2" width="300" height="300"></canvas></center>
+        </div>
+        <div class="chart">
+            <h2>Stars Per Languages</h2>
+            <br>
+            <center><canvas id="myChart3"></canvas></center>
+
+        </div>
+
+
+    </section>
+
+
+    <section id="top-repos">
+        <div class="header">
+            <h1>Top Repos</h1>
+            <ul class="sort-list">
+                <li class="sort" id="sortbystars" data-sort="stars" data-order="desc">Stars</li>
+
+                <li class="sort" id="sortbyforks" data-sort="forks" data-order="desc">Forks</li>
+
+                <li class="sort" id="sortbysizes" data-sort="repo-size" data-order="desc">Sizes</li>
+            </ul>
+
+        </div>
+        <ul class="list">
+            {% for data in repodata %}
+            <li class="card">
+                <a href="{{ data.html_url }}" target="_blank">
+                    <div class="box ">
+                        <h3><span><i class="far fa-bookmark"></i></span>{{ data.name }}</h3>
+                        <p>{{ data.description|truncatechars:150 }}</p>
+                        <div class="wrapper">
+                            <div class="repo-counts">
+                                <h6><span><i class="fas fa-circle" style="color: {% for k, v in colors.items %}
+                                    {% ifequal k data.language %}
+                                        {{ v.color }}
+                                    {% endifequal %}
+                                {% endfor %};"></i></span>{{ data.language }}</h6>
+                                <h6 class="stars"><span><i class="fas fa-star"></i></span>{{ data.stargazers_count }}
+                                </h6>
+                                <h6 class="forks"><span> <i class="fas fa-code-branch"></i></span>{{ data.forks }}</h6>
+                            </div>
+                            <div class="repo-size">
+                                <h6>{{ data.size }} KB</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+            </li>
+            {% endfor %}
+
+
+        </ul>
+    </section>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
