@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY =  os.getenv('SECRET_KEY')
+SECRET_KEY =  'django-insecure-eqsm54$f&8$3=3l(=ehjg)17cj&qxnpt+&wm0gyj_4sryqz%6$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['octoprofile.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['octoprofile.herokuapp.com']
 
 
 # Application definition
@@ -78,7 +78,12 @@ WSGI_APPLICATION = 'octoprofile.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
