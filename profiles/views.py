@@ -3,7 +3,6 @@ from django.shortcuts import render
 from requests.api import request
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
 from .forms import UsernameForm
 import requests
 import json
@@ -37,7 +36,7 @@ def get_username(request):
         if form.is_valid():
             # Process the data in form.cleaned_data as required
             headers = {
-                "Authorization": "token  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"
+                "Authorization": os.getenv('GITHUB_ACCESS_TOKEN')
             }
             # To get the User data and store in userdata
             url1 = "https://api.github.com/users/{}".format(form.cleaned_data['username'])
