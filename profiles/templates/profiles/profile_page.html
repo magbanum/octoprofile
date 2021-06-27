@@ -29,9 +29,13 @@
 
             <h1 id="name">{{ userdata.name }}</h1>
             <h2 id="username">@{{ userdata.login }}</h2><br>
+            {% if userdata.bio %}
             <p id="bio">{{ userdata.bio }}</p>
+            {% endif %}
             <div class="wide-block">
+                {% if userdata.location %}
                 <h3 id="location"><span><i class="fas fa-map-marker-alt"></i></span>{{ userdata.location }}</h3>
+                {% endif %}
                 <h3 id="joined-date"><span><i class="fas fa-calendar-day"></i></span>Joined {{ userdata.created_at }}
                 </h3>
             </div>
@@ -62,6 +66,7 @@
 
     </section>
     <section class="chart-container">
+
         <div class="chart">
             <h2>Top Languages</h2>
             <br>
@@ -123,12 +128,14 @@
                 </a>
             </li>
             {% endfor %}
-
-
         </ul>
+        <footer>
+            <p>Made with <i class="fas fa-heart"></i> by <a href="https://github.com/magbanum">@magbanum</a> using <a href="https://www.djangoproject.com/">Django</a> • <a
+                    href="https://chartjs.org/">ChartJS</a> • <a href="https://listjs.com/">ListJS</a> • <a href="https://docs.github.com/en/rest">GitHub API</a> . . .</p>
+        </footer>
+    
     </section>
-
-
+   
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 

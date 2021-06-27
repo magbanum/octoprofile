@@ -8,6 +8,7 @@
     --light-card: #fffdf6;
     --dark-card: #282828;
     --border-color: #505050;
+    --theme-color: #7868e6;
 }
 
 * {
@@ -57,6 +58,7 @@ body {
 
 .landing-page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -79,12 +81,13 @@ body {
     color: var(--light-font);
     font-family: sans-serif;
     font-size: 40px;
+    letter-spacing: 1px;
 }
 
 .block small {
     font-family: Poppins;
     font-size: medium;
-    color: rgb(236, 222, 28);
+    color: var(--theme-color);
 }
 
 #username-input {
@@ -92,7 +95,7 @@ body {
     color: var(--light-font);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 30px;
-    border: none;
+    border: solid var(--border-color) 1px;
     outline: none;
     border-radius: 5px;
     height: 60px;
@@ -116,7 +119,21 @@ body {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-@media (max-width: 480px) {
+footer {
+    padding: 20px 5px 20px 5px;
+    font-family: Poppins;
+    color: #636363;
+    text-align: center;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+footer i,
+footer a{
+    color: var(--theme-color);
+}
+
+@media (max-width: 700px) {
     .block {
         width: 100%;
         padding: 50px;
@@ -130,6 +147,9 @@ body {
     }
     .block label {
         font-size: 30px;
+    }
+    footer{
+        padding: 0px 10px 20px 10px;
     }
 }
 
@@ -184,7 +204,7 @@ div {
 }
 
 #username {
-    color: mediumpurple;
+    color: var(--theme-color);
     font-size: 30px;
     font-family: monospace;
 }
@@ -192,7 +212,8 @@ div {
 #bio {
     color: var(--light-font);
     font-size: 20px;
-    font-family: cursive;
+    font-family: Comfortaa;
+    line-height: 1.3em;
 }
 
 .wide-block {
@@ -214,7 +235,7 @@ div {
 
 span {
     margin-right: 10px;
-    color: mediumpurple;
+    color: var(--theme-color);
 }
 
 .counter {
@@ -245,6 +266,7 @@ span {
 }
 
 .count h4 {
+    color: var(--theme-color);
     font-size: 40px;
     text-align: center;
     letter-spacing: 5px;
@@ -322,17 +344,15 @@ span {
 }
 
 .chart {
-   
     overflow: hidden;
     width: 33%;
     height: 100%;
     margin-inline: 20px;
     padding: 30px;
-    background-color: var(--light-background);
-    border-radius: 5px;
-    box-shadow: 3px 3px 18px #b6b6b6;
+    background-color: var(--light-card);
+    border-radius: 7px;
+    border: solid var(--border-color) 2px;
     align-items: center;
-    
 }
 .chart h2{
     width: fit-content;
@@ -388,13 +408,14 @@ span {
 .box {
     text-align: left;
     height: 200px;
-    background: var(--light-background);
+    background: var(--light-card);
     border-radius: 5px;
     transition: all 0.3s ease;
     color: var(--dark-font);
     padding: 20px;
     position: relative;
-    box-shadow: 7px 7px 16px #dedcd6, -7px -7px 16px #ffffff;
+    box-shadow:  1px 5px 20px #d6d6d6,
+             -1px -5px 20px #ffffff;
 }
 
 .box:hover {
@@ -463,15 +484,16 @@ span {
     font-weight: 100;
 }
 
-@media (min-height: 1350px){
+@media (min-height:1501px) {
     .chart-container{
-        height: 200px;
+        height: 550px;
     }
 }
 
 @media (min-width:1001px) and (max-width:1350px) {
     .chart-container{
         height: 450px;
+        padding: 0px 20px 0px 20px;
     }
 }
 
@@ -496,6 +518,9 @@ span {
     .card {
         width: 50%;
     }
+    .list {
+        padding: 20px;
+    }
     
 }
 
@@ -504,8 +529,9 @@ span {
         padding: 50px 10px;
     }
     .intro {
-        padding: 20px;
+        padding: 0px;
         width: 100%;
+        
     }
     #name {
         font-size: 30px;
@@ -549,12 +575,12 @@ span {
     .count h4 {
         vertical-align: middle;
         font-size: 35px;
-        color: mediumpurple;
+        color: ;
     }   
     /* charts section */
     .chart-container {
         height: fit-content;
-        padding: 0px 40px 0px 40px;
+        padding: 0px 20px 0px 20px;
         flex-direction: column;
     }
 
@@ -564,9 +590,6 @@ span {
         margin-block-end: 40px;
     }
     
-    
-
-
     .header {
         display: block;
         text-align: center;
@@ -576,7 +599,7 @@ span {
     }
     .sort-list {
         justify-content: center;
-        padding: 30px;
+        padding: 20px;
     }
     #sortbystars,
     #sortbyforks,
@@ -584,7 +607,7 @@ span {
         margin: 5px;
     }
     .list {
-        padding: 40px;
+        padding: 20px;
     }
     .card {
         width: 100%;

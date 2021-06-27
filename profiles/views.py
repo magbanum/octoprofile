@@ -42,14 +42,16 @@ def get_username(request):
             url1 = "https://api.github.com/users/{}".format(form.cleaned_data['username'])
             response = requests.get(url1, headers=headers)
             userdata = response.json()
-            userdata['created_at'] = joined_date(userdata['created_at'])
+            
             # print(userdata)
-
+            print(userdata)
             # If response contains 'message' in it then the username is invalid. Return the error message.
             if 'message' in userdata.keys():
                 form = UsernameForm(request.GET)
                 note = "I can't find your Octoprofile.😟"
                 return render(request, 'profiles/home.html', {'form': form, 'note': note})
+            else:
+                userdata['created_at'] = joined_date(userdata['created_at'])
 
             # To get the Repositories data and store in repodata
             url2 = "https://api.github.com/users/{}/repos".format(form.cleaned_data['username'])
