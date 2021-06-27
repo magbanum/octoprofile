@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Octoprofile | {{ userdata.login }}</title>
-    <meta name="description" content="View your Github profile in cool way with the Charts for you top languages, most starred repositories and stars per languages.">
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="View your Github profile in better way with the charts for you top languages, most starred repositories and stars per languages.">
     <link rel="icon" href="https://res.cloudinary.com/magbanum/image/upload/v1624486789/GitHub-Mark-Light-32px_oyncfd.png" type="image/jpg">
+    <meta property="og:title" content="Octoprofile | {{ userdata.login }}" />
+    <meta property="og:description" content="View my Github profile in better way with the charts of my top languages, most starred repositories and stars per languages." />
+    <meta property="og:image" content="https://res.cloudinary.com/magbanum/image/upload/v1624796429/Octoprofile_utkgsy.png" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -22,7 +26,7 @@
         <div class="intro">
             <div class="avatar">
                 <div class="circle">
-                    <img src="{{ userdata.avatar_url }}" alt="">
+                    <img src="{{ userdata.avatar_url }}" alt="GitHub profile">
 
                 </div>
             </div>
