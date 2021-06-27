@@ -575,7 +575,7 @@ span {
     .count h4 {
         vertical-align: middle;
         font-size: 35px;
-        color: ;
+        color: var(--theme-color);
     }   
     /* charts section */
     .chart-container {
