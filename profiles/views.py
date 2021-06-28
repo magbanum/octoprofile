@@ -16,7 +16,7 @@ def home(request):
 
 def joined_date(date):
     months = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June',
-             '07': 'July', '08': 'August', '09': 'Saptember', '10': 'Octomber', '11': 'November', '12': 'December'}
+              '07': 'July', '08': 'August', '09': 'Saptember', '10': 'Octomber', '11': 'November', '12': 'December'}
     # print(date)
     year = date[:4]
     month = months[date[5:7]]
@@ -39,10 +39,11 @@ def get_username(request):
                 "Authorization": os.getenv('GITHUB_ACCESS_TOKEN')
             }
             # To get the User data and store in userdata
-            url1 = "https://api.github.com/users/{}".format(form.cleaned_data['username'])
+            url1 = "https://api.github.com/users/{}".format(
+                form.cleaned_data['username'])
             response = requests.get(url1, headers=headers)
             userdata = response.json()
-            
+
             # print(userdata)
             print(userdata)
             # If response contains 'message' in it then the username is invalid. Return the error message.
@@ -54,7 +55,8 @@ def get_username(request):
                 userdata['created_at'] = joined_date(userdata['created_at'])
 
             # To get the Repositories data and store in repodata
-            url2 = "https://api.github.com/users/{}/repos".format(form.cleaned_data['username'])
+            url2 = "https://api.github.com/users/{}/repos".format(
+                form.cleaned_data['username'])
             response = requests.get(url2, headers=headers)
             repodata = response.json()
             # To use repodata in another function
@@ -123,6 +125,8 @@ def get_repodata(request):
 
     return sorted_top_lang, sorted_most_starred, star_per_lang, colors
 
+# To create API endpoints for top 5 languages
+
 
 class TopLanguages(APIView):
     authentication_classes = []
@@ -139,6 +143,8 @@ class TopLanguages(APIView):
         }
         return Response(chart_data)
 
+# To create API endpoints for top 5 most starred repos
+
 
 class MostStarred(APIView):
     authentication_classes = []
@@ -151,6 +157,8 @@ class MostStarred(APIView):
             "values": data.values(),
         }
         return Response(chart_data)
+
+# To create API endpoints for stars per languages
 
 
 class StarsPerLanguages(APIView):

@@ -142,9 +142,9 @@ $(document).ready(function () {
 
     // For sort button
     var options = {
-        valueNames: [ 'stars', 'forks' , 'repo-size' ]
-      };
-      
+        valueNames: ['stars', 'forks', 'repo-size']
+    };
+
     var userList = new List('top-repos', options);
 
     var monkeyList = new List('top-repos', {
@@ -153,7 +153,7 @@ $(document).ready(function () {
         pagination: true
     });
 
-    $(".sort").click(function() {
+    $(".sort").click(function () {
         var attr = $(this).attr("id");
 
         $(".sort").removeClass("active");

@@ -45,17 +45,6 @@ body {
     background: #555;
 }
 
-
-/* all similar content styling codes section {
-    color: var(--light-font);
-    height: 65vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
- */
-
 .landing-page {
     display: flex;
     flex-direction: column;
@@ -152,7 +141,6 @@ footer a{
         padding: 0px 10px 20px 10px;
     }
 }
-
 
 /* This styling is for profile page*/
 
@@ -290,15 +278,11 @@ span {
     font-size: 25px;
 }
 
-
-
 .sort-list {
     display: flex;
     flex-direction: row;
     list-style: none;
 }
-
-
 
 .sort {
     background: transparent;
@@ -327,9 +311,6 @@ span {
     box-shadow: -2px -2px 5px #f7f7f7, 2px 2px 5px #d1cfca;
 }
 
-
-
-
 /* charts section */
 
 .chart-container {
@@ -354,6 +335,7 @@ span {
     border: solid var(--border-color) 2px;
     align-items: center;
 }
+
 .chart h2{
     width: fit-content;
     font-family: Poppins;
@@ -373,7 +355,6 @@ span {
     align-self: center;
 }
 
-
 /* top repo list */
 
 .card {
@@ -385,14 +366,12 @@ span {
     overflow: visible;
 }
 
-
 /* Remove extra left and right margins, due to padding */
 
 .list {
     padding: 30px;
     list-style-type: none;
 }
-
 
 /* Clear floats after the columns */
 
@@ -401,8 +380,6 @@ span {
     display: table;
     clear: both;
 }
-
-
 /* Style the counter cards */
 
 .box {
