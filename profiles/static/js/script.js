@@ -149,7 +149,7 @@ $(document).ready(function () {
 
     var monkeyList = new List('top-repos', {
         valueNames: ['stars', 'forks', 'repo-size'],
-        page: 8,
+        page: 9,
         pagination: true
     });
 
