@@ -8,7 +8,6 @@ import requests
 import json
 import os
 
-
 def home(request):
     form = UsernameForm()
     return render(request, 'profiles/home.html', {'form': form})
@@ -45,14 +44,14 @@ def get_username(request):
             userdata = response.json()
 
             # print(userdata)
-            print(userdata)
+            # print(userdata)
             # If response contains 'message' in it then the username is invalid. Return the error message.
             if 'message' in userdata.keys():
                 form = UsernameForm(request.GET)
                 note = "I can't find your Octoprofile.😟"
                 return render(request, 'profiles/home.html', {'form': form, 'note': note})
-            else:
-                userdata['created_at'] = joined_date(userdata['created_at'])
+
+            userdata['created_at'] = joined_date(userdata['created_at'])
 
             # To get the Repositories data and store in repodata
             url2 = "https://api.github.com/users/{}/repos".format(
@@ -70,13 +69,12 @@ def get_username(request):
             data.close()
 
             return render(request, 'profiles/profile_page.html', {'userdata': userdata, 'repodata': repodata, 'colors': colors})
-        else:
-            form = UsernameForm()
-            return render(request, 'profiles/home.html', {'form': form})
-    # If a GET (or any other method) we'll create a blank form
-    else:
+        
         form = UsernameForm()
         return render(request, 'profiles/home.html', {'form': form})
+    # If a GET (or any other method) we'll create a blank form
+    form = UsernameForm()
+    return render(request, 'profiles/home.html', {'form': form})
 
 
 def get_repodata(request):
@@ -132,7 +130,7 @@ class TopLanguages(APIView):
     authentication_classes = []
     permission_classes = []
 
-    def get(self, request, format=None):
+    def get(self, request):
         data = get_repodata(request)[0]
         colors_data = get_repodata(request)[3]
         colors = [colors_data[key]["color"] for key in data.keys()]
@@ -150,7 +148,7 @@ class MostStarred(APIView):
     authentication_classes = []
     permission_classes = []
 
-    def get(self, request, format=None):
+    def get(self, request):
         data = get_repodata(request)[1]
         chart_data = {
             "labels": data.keys(),
@@ -165,7 +163,7 @@ class StarsPerLanguages(APIView):
     authentication_classes = []
     permission_classes = []
 
-    def get(self, request, format=None):
+    def get(self, request):
         data = get_repodata(request)[2]
         colors_data = get_repodata(request)[3]
         colors = [colors_data[key]["color"] for key in data.keys()]

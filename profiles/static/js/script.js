@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    /* exported myChart */
     var endpoint1 = '/api/top-languages/'
     var endpoint2 = '/api/most-starred/'
     var endpoint3 = '/api/stars-per-languages/'
@@ -40,7 +40,7 @@ $(document).ready(function () {
                 }
             });
         },
-        error: function (error_data) {
+        error: function () {
             console.log("error")
         }
     })
@@ -97,7 +97,7 @@ $(document).ready(function () {
                 }
             });
         },
-        error: function (error_data) {
+        error: function () {
             console.log("error")
         }
     })
@@ -135,7 +135,7 @@ $(document).ready(function () {
                 }
             });
         },
-        error: function (error_data) {
+        error: function () {
             console.log("error")
         }
     })
