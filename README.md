@@ -10,7 +10,7 @@ The website might be slower for first load as the project is deployed on Heroku'
 
 
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![CodeFactor](https://www.codefactor.io/repository/github/magbanum/octoprofile/badge)](https://www.codefactor.io/repository/github/magbanum/octoprofile)
 
 ### Coded with
 - Python
