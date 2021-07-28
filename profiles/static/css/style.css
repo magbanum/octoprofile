@@ -387,6 +387,7 @@ span {
     height: 200px;
     background: var(--light-card);
     border-radius: 5px;
+    border: solid transparent 1px;
     transition: all 0.3s ease;
     color: var(--dark-font);
     padding: 20px;
