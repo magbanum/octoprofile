@@ -21,3 +21,4 @@ sqlparse==0.4.3
 static3==0.7.0
 urllib3==1.26.12
 whitenoise==5.2.0
+dj-database-url==1.0.0
